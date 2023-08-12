@@ -1,30 +1,27 @@
 package com.example.asteriskserver.FeignClients.AsteriskARI.Response;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.io.Serial;
 import java.io.Serializable;
-
 
 /**
  * created by  :  erakhmanberdiev
- * created date & time: 04.08.2023  12:03
+ * created date & time: 12.08.2023  18:06
  */
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @ToString
 
-public class Message implements Serializable {
+public class ChannelCallerId extends Event implements Serializable {
+    @Serial
     private static final long serialVersionUID = 1L;
-    String type;
-    @JsonProperty("asterisk_id")
-    String asteriskID;
+    Integer caller_presentation;
+    String caller_presentation_txt;
+    Channel channel;
 }
